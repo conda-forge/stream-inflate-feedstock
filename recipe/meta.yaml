@@ -17,9 +17,10 @@ build:
 requirements:
   host:
     - pip
-    - python >=3.5
+    - python >=3.6.7,!=3.7.0
+    - hatchling
   run:
-    - python >=3.5
+    - python >=3.6.7,!=3.7.0
 
 test:
   imports:
