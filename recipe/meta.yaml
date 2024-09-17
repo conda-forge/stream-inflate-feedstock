@@ -18,7 +18,8 @@ requirements:
   host:
     - pip
     - python >=3.6.7,!=3.7.0
-    - hatchling
+    - setuptools
+    - cython >=3.0.0
   run:
     - python >=3.6.7,!=3.7.0
 
