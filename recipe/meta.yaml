@@ -10,18 +10,21 @@ source:
   sha256: f93826c3fb91cd879e503ebe381cd1b6543892f23ef14a529b02ff668f709035
 
 build:
-  noarch: python
+  skip: True  # [py<38]
   script: {{ PYTHON }} -m pip install . -vv
   number: 0
 
 requirements:
+  build:
+    - {{ stdlib('c') }}
+    - {{ compiler('c') }}
   host:
     - pip
-    - python >=3.6.7,!=3.7.0
+    - python
     - setuptools
     - cython >=3.0.0
   run:
-    - python >=3.6.7,!=3.7.0
+    - python
 
 test:
   imports:
