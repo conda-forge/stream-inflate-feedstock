@@ -1,5 +1,5 @@
 {% set name = "stream-inflate" %}
-{% set version = "0.0.23" %}
+{% set version = "0.0.24" %}
 
 package:
   name: {{ name|lower }}
@@ -7,20 +7,24 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_') }}-{{ version }}.tar.gz
-  sha256: 9ab8f0ca7f7187b0e66399274c836b6bf48400938c32de76853beee263fc5c4b
+  sha256: f93826c3fb91cd879e503ebe381cd1b6543892f23ef14a529b02ff668f709035
 
 build:
-  noarch: python
+  skip: True  # [py<38]
   script: {{ PYTHON }} -m pip install . -vv
   number: 0
 
 requirements:
+  build:
+    - {{ stdlib('c') }}
+    - {{ compiler('c') }}
   host:
     - pip
-    - python >=3.6.7,!=3.7.0
-    - hatchling
+    - python
+    - setuptools
+    - cython >=3.0.0
   run:
-    - python >=3.6.7,!=3.7.0
+    - python
 
 test:
   imports:
