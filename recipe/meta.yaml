@@ -1,5 +1,5 @@
 {% set name = "stream-inflate" %}
-{% set version = "0.0.25" %}
+{% set version = "0.0.27" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_') }}-{{ version }}.tar.gz
-  sha256: cba135ff218dfe7b6a7c9b2db58a2cd8d9378f70fd31244962cddf70790ce050
+  sha256: 1959c5f01d920dd68065795f51eb4d177eb5a1216a3b08cf9d2e07b93f73cc5b
 
 build:
   skip: true  # [py<38]
